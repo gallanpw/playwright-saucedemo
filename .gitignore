@@ -1,0 +1,17 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://github.com/github/gitignore/tree/main for more about ignoring files.
+
+# System/os files
+.DS_Store
+Thumbs.db
+
+# Build output
+__pycache__/
+.pytest_cache/
+
+# Logs
+pytestdebug.log
+
+# Editor directories
+.vscode/
+.idea/
