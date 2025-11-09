@@ -1,5 +1,5 @@
 # Makefile
-.PHONY: headed headed-slowmo inspector debug test
+.PHONY: headed slowmo inspector debug test
 
 # Alias sederhana untuk menjalankan tes login dengan browser terbuka (headed)
 headed:
@@ -7,7 +7,7 @@ headed:
 	pytest tests/test_checkout.py --headed
 
 # Alias yang Anda inginkan: headed dan slowmo
-headed-slowmo:
+slowmo:
 	pytest tests/test_login.py --headed --slowmo 1000
 	pytest tests/test_checkout.py --headed --slowmo 1000
 

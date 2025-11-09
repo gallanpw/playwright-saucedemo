@@ -5,9 +5,16 @@
 .DS_Store
 Thumbs.db
 
+# Dotenv environment variable files
+.env
+
 # Build output
 __pycache__/
 .pytest_cache/
+
+# dependencies
+venv/
+*.pyc
 
 # Logs
 pytestdebug.log
