@@ -1,12 +1,21 @@
 import pytest
+import os
 from playwright.sync_api import Page
 from pages.login_page import LoginPage # Sesuaikan path impor
+from dotenv import load_dotenv
 
-# Data Kredensial Positif
-VALID_USERNAME = "standard_user"
-VALID_PASSWORD = "secret_sauce"
-INVALID_USERNAME = "wrong_user"
-INVALID_PASSWORD = "wrong_password"
+# ----------------- LOADING ENVIRONMENT VARIABLES ------------------
+load_dotenv()
+
+# Data Kredensial from .env
+VALID_USERNAME = os.getenv("SAUCEDEMO_USERNAME_VALID")
+VALID_PASSWORD = os.getenv("SAUCEDEMO_PASSWORD_VALID")
+INVALID_USERNAME = os.getenv("SAUCEDEMO_USERNAME_INVALID")
+INVALID_PASSWORD = os.getenv("SAUCEDEMO_PASSWORD_INVALID")
+
+# Pastikan data terambil (optional check)
+if not VALID_USERNAME or not VALID_PASSWORD:
+    raise ValueError("Pastikan SAUCEDEMO_USERNAME_VALID dan SAUCEDEMO_PASSWORD_VALID diatur di file .env")
 
 def test_successful_login(page: Page):
     """

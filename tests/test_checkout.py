@@ -1,17 +1,26 @@
 import pytest
+import os
 from playwright.sync_api import Page
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
 from pages.checkout_page import CheckoutPage
+from dotenv import load_dotenv
 
-# Data Kredensial Positif
-VALID_USERNAME = "standard_user"
-VALID_PASSWORD = "secret_sauce"
+# ----------------- LOADING ENVIRONMENT VARIABLES ------------------
+load_dotenv()
 
-# Data Checkout
-FIRST_NAME = "Tester"
-LAST_NAME = "Automation"
-POSTAL_CODE = "12345"
+# Data Kredensial from .env
+VALID_USERNAME = os.getenv("SAUCEDEMO_USERNAME_VALID")
+VALID_PASSWORD = os.getenv("SAUCEDEMO_PASSWORD_VALID")
+
+# Data Checkout from .env
+FIRST_NAME = os.getenv("SAUCEDEMO_FIRST_NAME")
+LAST_NAME = os.getenv("SAUCEDEMO_LAST_NAME")
+POSTAL_CODE = os.getenv("SAUCEDEMO_POSTAL_CODE")
+
+# Pastikan data terambil (optional check)
+if not VALID_USERNAME or not VALID_PASSWORD:
+    raise ValueError("Pastikan SAUCEDEMO_USERNAME_VALID dan SAUCEDEMO_PASSWORD_VALID diatur di file .env")
 
 def test_successful_checkout_e2e(page: Page):
     """
