@@ -12,7 +12,7 @@ Thumbs.db
 __pycache__/
 .pytest_cache/
 
-# dependencies
+# Dependencies
 venv/
 *.pyc
 
